@@ -38,7 +38,7 @@
   "homepage": "https://github.com/ipfs/js-blockstore-datastore-adapter#readme",
   "devDependencies": {
     "aegir": "^33.1.0",
-    "interface-blockstore-tests": "^0.0.1",
+    "interface-blockstore-tests": "^0.0.2",
     "it-map": "^1.0.5"
   },
   "dependencies": {
