@@ -1,6 +1,6 @@
 # blockstore-datastore-adapter <!-- omit in toc -->
 
-> Wraps a [datastore]([https://npmdatastore](https://github.com/ipfs/js-ipfs-interfaces/tree/master/packages/interface-datastore)) with a [blockstore](https://github.com/ipfs/js-ipfs-interfaces/tree/master/packages/interface-blockstore)
+> Wraps a [datastore](https://github.com/ipfs/js-ipfs-interfaces/tree/master/packages/interface-datastore) with a [blockstore](https://github.com/ipfs/js-ipfs-interfaces/tree/master/packages/interface-blockstore)
 
 ## Table of Contents <!-- omit in toc -->
 
