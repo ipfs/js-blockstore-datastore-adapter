@@ -1,6 +1,6 @@
 {
   "name": "blockstore-datastore-adapter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "datastore interface",
   "leadMaintainer": "Alex Potsides <alex.potsides@protocol.ai>",
   "main": "src/index.js",
@@ -57,5 +57,8 @@
   },
   "eslintConfig": {
     "extends": "ipfs"
-  }
+  },
+  "contributors": [
+    "achingbrain <alex@achingbrain.net>"
+  ]
 }
