@@ -106,15 +106,15 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
   constructor (datastore) {
     super()
 
-    this.store = datastore
+    this.child = datastore
   }
 
   open () {
-    return this.store.open()
+    return this.child.open()
   }
 
   close () {
-    return this.store.close()
+    return this.child.close()
   }
 
   /**
@@ -122,7 +122,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
    * @param {Options} [options]
    */
   async * query (query, options) {
-    for await (const { key, value } of this.store.query(convertQuery(query), options)) {
+    for await (const { key, value } of this.child.query(convertQuery(query), options)) {
       yield { key: keyToCid(key), value }
     }
   }
@@ -132,7 +132,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
    * @param {Options} [options]
    */
   async * queryKeys (query, options) {
-    for await (const key of this.store.queryKeys(convertKeyQuery(query), options)) {
+    for await (const key of this.child.queryKeys(convertKeyQuery(query), options)) {
       yield keyToCid(key)
     }
   }
@@ -143,7 +143,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
    * @returns
    */
   async get (cid, options) {
-    return this.store.get(cidToKey(cid), options)
+    return this.child.get(cidToKey(cid), options)
   }
 
   /**
@@ -162,7 +162,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
    * @param {Options} [options]
    */
   async put (cid, value, options) {
-    await this.store.put(cidToKey(cid), value, options)
+    await this.child.put(cidToKey(cid), value, options)
   }
 
   /**
@@ -186,9 +186,9 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
 
     runner(async () => {
       try {
-        const store = this.store
+        const store = this.child
 
-        await drain(this.store.putMany(async function * () {
+        await drain(this.child.putMany(async function * () {
           for await (const block of blocks) {
             const key = cidToKey(block.key)
             const exists = await store.has(key, options)
@@ -217,7 +217,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
    * @param {Options} [options]
    */
   has (cid, options) {
-    return this.store.has(cidToKey(cid), options)
+    return this.child.has(cidToKey(cid), options)
   }
 
   /**
@@ -225,7 +225,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
    * @param {Options} [options]
    */
   delete (cid, options) {
-    return this.store.delete(cidToKey(cid), options)
+    return this.child.delete(cidToKey(cid), options)
   }
 
   /**
@@ -235,7 +235,7 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
   deleteMany (cids, options) {
     const out = pushable()
 
-    drain(this.store.deleteMany((async function * () {
+    drain(this.child.deleteMany((async function * () {
       for await (const cid of cids) {
         yield cidToKey(cid)
 
