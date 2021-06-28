@@ -13,13 +13,10 @@
     "prepare": "aegir build --no-bundle",
     "lint": "aegir ts -p check && aegir lint",
     "test": "aegir test",
-    "test:node": "aegir test --target node",
-    "test:browser": "aegir test --target browser",
-    "release": "aegir release --docs",
-    "release-minor": "aegir release --type minor --docs",
-    "release-major": "aegir release --type major --docs",
-    "coverage": "aegir test --cov",
-    "docs": "aegir docs"
+    "release": "aegir release",
+    "release-minor": "aegir release --type minor",
+    "release-major": "aegir release --type major",
+    "coverage": "aegir test --cov"
   },
   "repository": {
     "type": "git",
