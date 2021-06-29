@@ -6,7 +6,8 @@ const { Key } = require('interface-datastore')
 const { CID } = require('multiformats/cid')
 const raw = require('multiformats/codecs/raw')
 const Digest = require('multiformats/hashes/digest')
-const { base32 } = require('multiformats/bases/base32')
+const { base32, base32pad } = require('multiformats/bases/base32')
+const { base58btc } = require('multiformats/bases/base58')
 const errcode = require('err-code')
 const { BlockstoreAdapter } = require('interface-blockstore')
 
@@ -33,8 +34,48 @@ function cidToKey (cid) {
  * @returns {CID}
  */
 function keyToCid (key) {
-  // Block key is of the form /<base32 encoded string>
+  // Block key is of the form <base32 encoded string>
   return CID.createV1(raw.code, Digest.decode(base32.decode('b' + key.toString().slice(1).toLowerCase())))
+}
+
+/**
+ * Tries to decode a prefix as the first part of a CID and then
+ * strip off the version and codec bytes to just leave part of
+ * the multihash.
+ *
+ * Only really works if the prefix length aligns with the byte
+ * boundaries of the encoding.
+ *
+ * @param {string} prefix
+ * @returns {string}
+ */
+function convertPrefix (prefix) {
+  let bytes
+  const firstChar = prefix.substring(0, 1)
+
+  if (firstChar === '/') {
+    return convertPrefix(prefix.substring(1))
+  }
+
+  if (firstChar.toLowerCase() === 'b') {
+    // v1 cid prefix, remove version and codec bytes
+    bytes = base32.decode(prefix.toLowerCase()).subarray(2)
+  } else if (firstChar.toLowerCase() === 'c') {
+    // v1 cid prefix, remove version and codec bytes
+    bytes = base32pad.decode(prefix.toLowerCase()).subarray(2)
+  } else if (firstChar === 'z') {
+    // v1 cid
+    bytes = base58btc.decode(prefix).subarray(2)
+  } else if (firstChar === 'Q') {
+    // v0 cid prefix
+    bytes = base58btc.decode('z' + prefix)
+  } else {
+    bytes = base32.decode('b' + prefix.toLowerCase()).subarray(2)
+  }
+
+  const str = base32.encode(bytes).substring(1).toUpperCase()
+
+  return str || 'C'
 }
 
 /**
@@ -44,7 +85,7 @@ function keyToCid (key) {
 function convertQuery (query) {
   return {
     ...query,
-    prefix: query.prefix ? `/${query.prefix}` : undefined,
+    prefix: query.prefix ? `/${convertPrefix(query.prefix)}` : undefined,
     filters: query.filters
       ? query.filters.map(
         filter => (pair) => {
@@ -69,7 +110,7 @@ function convertQuery (query) {
 function convertKeyQuery (query) {
   return {
     ...query,
-    prefix: query.prefix ? `/${query.prefix}` : undefined,
+    prefix: query.prefix ? `/${convertPrefix(query.prefix)}` : undefined,
     filters: query.filters
       ? query.filters.map(
         filter => (key) => {

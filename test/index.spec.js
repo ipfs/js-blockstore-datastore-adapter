@@ -8,7 +8,9 @@ describe('Memory', () => {
   describe('interface-blockstore', () => {
     require('interface-blockstore-tests')({
       setup () {
-        return new BlockstoreDatastoreAdapter(new MemoryDatastore())
+        return new BlockstoreDatastoreAdapter(
+          new MemoryDatastore()
+        )
       },
       teardown () {}
     })
