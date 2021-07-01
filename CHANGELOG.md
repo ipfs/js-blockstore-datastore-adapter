@@ -1,3 +1,7 @@
+## [0.0.4](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v0.0.3...v0.0.4) (2021-07-01)
+
+
+
 ## [0.0.3](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v0.0.2...v0.0.3) (2021-06-29)
 
 
