@@ -1,6 +1,6 @@
 {
   "name": "blockstore-datastore-adapter",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "datastore interface",
   "leadMaintainer": "Alex Potsides <alex.potsides@protocol.ai>",
   "main": "src/index.js",
