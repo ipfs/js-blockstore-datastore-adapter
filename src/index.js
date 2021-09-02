@@ -18,11 +18,13 @@ const { BlockstoreAdapter } = require('interface-blockstore')
  * @returns {Key}
  */
 function cidToKey (cid) {
-  if (!(cid instanceof CID)) {
+  const c = CID.asCID(cid)
+
+  if (!(c instanceof CID)) {
     throw errcode(new Error('Not a valid cid'), 'ERR_INVALID_CID')
   }
 
-  return new Key('/' + base32.encode(cid.multihash.bytes).slice(1).toUpperCase(), false)
+  return new Key('/' + base32.encode(c.multihash.bytes).slice(1).toUpperCase(), false)
 }
 
 /**
