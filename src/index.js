@@ -52,32 +52,53 @@ function keyToCid (key) {
  * @returns {string}
  */
 function convertPrefix (prefix) {
-  let bytes
   const firstChar = prefix.substring(0, 1)
 
   if (firstChar === '/') {
     return convertPrefix(prefix.substring(1))
   }
 
+  /** @type {(input: string) => Uint8Array } */
+  let decoder
+
   if (firstChar.toLowerCase() === 'b') {
     // v1 cid prefix, remove version and codec bytes
-    bytes = base32.decode(prefix.toLowerCase()).subarray(2)
+    decoder = (input) => base32.decode(input.toLowerCase()).subarray(2)
   } else if (firstChar.toLowerCase() === 'c') {
     // v1 cid prefix, remove version and codec bytes
-    bytes = base32pad.decode(prefix.toLowerCase()).subarray(2)
+    decoder = (input) => base32pad.decode(input.toLowerCase()).subarray(2)
   } else if (firstChar === 'z') {
     // v1 cid
-    bytes = base58btc.decode(prefix).subarray(2)
+    decoder = (input) => base58btc.decode(input).subarray(2)
   } else if (firstChar === 'Q') {
     // v0 cid prefix
-    bytes = base58btc.decode('z' + prefix)
+    decoder = (input) => base58btc.decode('z' + input)
   } else {
-    bytes = base32.decode('b' + prefix.toLowerCase()).subarray(2)
+    decoder = (input) => base32.decode('b' + input.toLowerCase()).subarray(2)
   }
 
-  const str = base32.encode(bytes).substring(1).toUpperCase()
+  let bytes
 
-  return str || 'C'
+  // find the longest prefix that we can safely decode
+  for (let i = 1; i < prefix.length; i++) {
+    try {
+      bytes = decoder(prefix.substring(0, i))
+    } catch (err) {
+      if (err.message !== 'Unexpected end of data') {
+        throw err
+      }
+    }
+  }
+
+  let str = '/C'
+
+  if (bytes) {
+    // slice one character from the end of the string to ensure we don't end up
+    // with a padded value which could have a non-matching string at the end
+    str = `/${base32.encode(bytes).slice(1, -1).toUpperCase() || 'C'}`
+  }
+
+  return str
 }
 
 /**
@@ -87,7 +108,7 @@ function convertPrefix (prefix) {
 function convertQuery (query) {
   return {
     ...query,
-    prefix: query.prefix ? `/${convertPrefix(query.prefix)}` : undefined,
+    prefix: query.prefix ? convertPrefix(query.prefix) : undefined,
     filters: query.filters
       ? query.filters.map(
         filter => (pair) => {
@@ -112,7 +133,7 @@ function convertQuery (query) {
 function convertKeyQuery (query) {
   return {
     ...query,
-    prefix: query.prefix ? `/${convertPrefix(query.prefix)}` : undefined,
+    prefix: query.prefix ? convertPrefix(query.prefix) : undefined,
     filters: query.filters
       ? query.filters.map(
         filter => (key) => {
