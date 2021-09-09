@@ -1,12 +1,12 @@
 /* eslint-env mocha */
-'use strict'
 
-const { MemoryDatastore } = require('interface-datastore')
-const BlockstoreDatastoreAdapter = require('../src')
+import { MemoryDatastore } from 'datastore-core/memory'
+import { BlockstoreDatastoreAdapter } from '../src/index.js'
+import { interfaceBlockstoreTests } from 'interface-blockstore-tests'
 
 describe('Memory', () => {
   describe('interface-blockstore', () => {
-    require('interface-blockstore-tests')({
+    interfaceBlockstoreTests({
       setup () {
         return new BlockstoreDatastoreAdapter(
           new MemoryDatastore()
