@@ -18,7 +18,7 @@ $ npm install blockstore-datastore-adapter
 ## Usage
 
 ```js
-import { MemoryDatastore } from ('datastore-core/memory')
+import { MemoryDatastore } from 'datastore-core/memory'
 import { BlockstoreDatastoreAdapter } from 'blockstore-datastore-adapter'
 
 const store = new BlockstoreDatastoreAdapter(new MemoryDatastore())
