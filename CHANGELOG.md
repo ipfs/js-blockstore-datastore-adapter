@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v1.0.1...v2.0.0) (2021-09-09)
+
+
+### chore
+
+* switch to esm ([#10](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/10)) ([e8a2521](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/e8a2521c090790c6cd6877950a3d90c3a938d83d))
+
+
+### BREAKING CHANGES
+
+* deep imports/requires are no longer possible
+
+
+
 ## [1.0.1](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v1.0.0...v1.0.1) (2021-09-02)
 
 
