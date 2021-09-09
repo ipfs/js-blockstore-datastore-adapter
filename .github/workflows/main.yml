@@ -50,18 +50,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npx aegir test -t browser -t webworker --bail -- --browser firefox
+      - run: npx aegir test -t browser -t webworker --bail -- --browsers FirefoxHeadless
   test-electron-main:
     needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npx xvfb-maybe aegir test -t electron-main --bail
+      - run: npm run pretest
+      - run: npx xvfb-maybe aegir test -t electron-main --bail -f dist/cjs/node-test/*js
   test-electron-renderer:
     needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npx xvfb-maybe aegir test -t electron-renderer --bail
+      - run: npm run pretest
+      - run: npx xvfb-maybe aegir test -t electron-renderer --bail -f dist/cjs/browser-test/*js

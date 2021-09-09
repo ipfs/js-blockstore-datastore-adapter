@@ -1,15 +1,13 @@
-'use strict'
-
-const drain = require('it-drain')
-const pushable = require('it-pushable')
-const { Key } = require('interface-datastore')
-const { CID } = require('multiformats/cid')
-const raw = require('multiformats/codecs/raw')
-const Digest = require('multiformats/hashes/digest')
-const { base32, base32pad } = require('multiformats/bases/base32')
-const { base58btc } = require('multiformats/bases/base58')
-const errcode = require('err-code')
-const { BlockstoreAdapter } = require('interface-blockstore')
+import drain from 'it-drain'
+import pushable from 'it-pushable'
+import { Key } from 'interface-datastore/key'
+import { CID } from 'multiformats/cid'
+import * as raw from 'multiformats/codecs/raw'
+import * as Digest from 'multiformats/hashes/digest'
+import { base32, base32pad } from 'multiformats/bases/base32'
+import { base58btc } from 'multiformats/bases/base58'
+import errcode from 'err-code'
+import { BaseBlockstore } from 'blockstore-core/base'
 
 /**
  * Transform a cid to the appropriate datastore key.
@@ -83,7 +81,7 @@ function convertPrefix (prefix) {
   for (let i = 1; i < prefix.length; i++) {
     try {
       bytes = decoder(prefix.substring(0, i))
-    } catch (err) {
+    } catch (/** @type {any} */ err) {
       if (err.message !== 'Unexpected end of data') {
         throw err
       }
@@ -163,7 +161,7 @@ function convertKeyQuery (query) {
 /**
  * @implements {Blockstore}
  */
-class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
+export class BlockstoreDatastoreAdapter extends BaseBlockstore {
   /**
    * @param {Datastore} datastore
    */
@@ -314,5 +312,3 @@ class BlockstoreDatastoreAdapter extends BlockstoreAdapter {
     return out
   }
 }
-
-module.exports = BlockstoreDatastoreAdapter
