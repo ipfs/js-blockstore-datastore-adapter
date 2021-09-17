@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v1.0.0...v1.0.1) (2021-09-17)
+
+
+### Bug Fixes
+
+* backport remove instanceof ([#13](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/13)) ([d172361](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/d172361db45ade33b5e777c51a7848da8abb7bc1))
+* convert cid before instanceof check ([#9](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/9)) ([b442488](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/b4424884e89dc30b27a8466ba6cefac5e0612daa))
+
+
+
 # [1.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v0.0.4...v1.0.0) (2021-07-06)
 
 
