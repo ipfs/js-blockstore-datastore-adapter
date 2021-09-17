@@ -18,7 +18,7 @@ import { BaseBlockstore } from 'blockstore-core/base'
 function cidToKey (cid) {
   const c = CID.asCID(cid)
 
-  if (!(c instanceof CID)) {
+  if (!c) {
     throw errcode(new Error('Not a valid cid'), 'ERR_INVALID_CID')
   }
 
