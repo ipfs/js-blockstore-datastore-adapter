@@ -1,3 +1,12 @@
+## [2.0.3](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v2.0.2...v2.0.3) (2021-09-29)
+
+
+### Bug Fixes
+
+* access process from globalThis ([#14](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/14)) ([7874fd7](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/7874fd70540e1be985c4703ffbd635fe3764ba94))
+
+
+
 ## [2.0.2](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v2.0.1...v2.0.2) (2021-09-17)
 
 
