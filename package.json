@@ -50,7 +50,7 @@
   "homepage": "https://github.com/ipfs/js-blockstore-datastore-adapter#readme",
   "devDependencies": {
     "aegir": "^35.0.2",
-    "datastore-core": "^6.0.6",
+    "datastore-core": "^7.0.3",
     "interface-blockstore-tests": "^2.0.1",
     "util": "^0.12.4"
   },
