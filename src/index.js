@@ -1,5 +1,5 @@
 import drain from 'it-drain'
-import pushable from 'it-pushable'
+import { pushable } from 'it-pushable'
 import { Key } from 'interface-datastore/key'
 import { CID } from 'multiformats/cid'
 import * as raw from 'multiformats/codecs/raw'
@@ -240,7 +240,9 @@ export class BlockstoreDatastoreAdapter extends BaseBlockstore {
     // nb. we want to use `store.putMany` here so bitswap can control batching
     // up block HAVEs to send to the network - if we use multiple `store.put`s
     // it will not be able to guess we are about to `store.put` more blocks
-    const output = pushable()
+    const output = pushable({
+      objectMode: true
+    })
 
     // process.nextTick runs on the microtask queue, setImmediate runs on the next
     // event loop iteration so is slower. Use process.nextTick if it is available.
@@ -266,7 +268,7 @@ export class BlockstoreDatastoreAdapter extends BaseBlockstore {
         }()))
 
         output.end()
-      } catch (err) {
+      } catch (/** @type {any} */ err) {
         output.end(err)
       }
     })
@@ -295,7 +297,9 @@ export class BlockstoreDatastoreAdapter extends BaseBlockstore {
    * @param {Options} [options]
    */
   deleteMany (cids, options) {
-    const out = pushable()
+    const out = pushable({
+      objectMode: true
+    })
 
     drain(this.child.deleteMany((async function * () {
       for await (const cid of cids) {
