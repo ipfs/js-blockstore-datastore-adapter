@@ -1,3 +1,19 @@
+## [3.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v2.0.3...v3.0.0) (2022-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* this module was previously published as CJS/ESM, now it is just ESM
+
+### Features
+
+* publish module as ESM only ([#55](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/55)) ([c53dda8](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/c53dda8c738086ec14b6df4af060f0afa9099e3e))
+
+
+### Trivial Changes
+
+* Update .github/workflows/stale.yml [skip ci] ([7b1ef0b](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/7b1ef0b973e65fb22c078e59e7d7f4b059c0f899))
+
 ## [2.0.3](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v2.0.2...v2.0.3) (2021-09-29)
 
 
@@ -60,6 +76,3 @@
 
 
 ## 0.0.1 (2021-06-28)
-
-
-
