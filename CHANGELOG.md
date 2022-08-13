@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v3.0.0...v3.0.1) (2022-08-13)
+
+
+### Dependencies
+
+* update blockstore-core ([#56](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/56)) ([0fe3e56](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/0fe3e56e2ecf74cf3c501bccc57f791c06eff874))
+
 ## [3.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v2.0.3...v3.0.0) (2022-08-12)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "blockstore-datastore-adapter",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "datastore interface",
   "license": "Apache-2.0 OR MIT",
   "homepage": "https://github.com/ipfs/js-blockstore-datastore-adapter#readme",
