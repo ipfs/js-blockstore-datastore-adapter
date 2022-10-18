@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v3.0.1...v4.0.0) (2022-10-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* CID class is now loaded from a different location
+
+### Dependencies
+
+* update multiformats ([#59](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/59)) ([aca74b5](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/aca74b5bb5b52aa054f64eef1ec34c33a1abece6))
+
 ## [3.0.1](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v3.0.0...v3.0.1) (2022-08-13)
 
 
