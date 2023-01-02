@@ -162,7 +162,7 @@
     "interface-datastore": "^7.0.0",
     "it-drain": "^2.0.0",
     "it-pushable": "^3.1.0",
-    "multiformats": "^10.0.1"
+    "multiformats": "^11.0.0"
   },
   "devDependencies": {
     "aegir": "^37.5.1",
