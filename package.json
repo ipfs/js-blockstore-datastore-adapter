@@ -153,20 +153,21 @@
     "test:chrome-webworker": "aegir test -t webworker",
     "test:firefox": "aegir test -t browser -- --browser firefox",
     "test:firefox-webworker": "aegir test -t webworker -- --browser firefox",
-    "release": "aegir release"
+    "release": "aegir release",
+    "docs": "aegir docs"
   },
   "dependencies": {
-    "blockstore-core": "^2.0.0",
+    "blockstore-core": "^3.0.0",
     "err-code": "^3.0.1",
-    "interface-blockstore": "^3.0.0",
+    "interface-blockstore": "^4.0.0",
     "interface-datastore": "^7.0.0",
     "it-drain": "^2.0.0",
     "it-pushable": "^3.1.0",
-    "multiformats": "^10.0.1"
+    "multiformats": "^11.0.0"
   },
   "devDependencies": {
     "aegir": "^37.5.1",
     "datastore-core": "^8.0.1",
-    "interface-blockstore-tests": "^3.0.0"
+    "interface-blockstore-tests": "^4.0.0"
   }
 }

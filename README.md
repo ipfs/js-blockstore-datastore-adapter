@@ -3,22 +3,31 @@
 [![ipfs.tech](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](https://ipfs.tech)
 [![Discuss](https://img.shields.io/discourse/https/discuss.ipfs.tech/posts.svg?style=flat-square)](https://discuss.ipfs.tech)
 [![codecov](https://img.shields.io/codecov/c/github/ipfs/js-blockstore-datastore-adapter.svg?style=flat-square)](https://codecov.io/gh/ipfs/js-blockstore-datastore-adapter)
-[![CI](https://img.shields.io/github/workflow/status/ipfs/js-blockstore-datastore-adapter/test%20&%20maybe%20release/master?style=flat-square)](https://github.com/ipfs/js-blockstore-datastore-adapter/actions/workflows/js-test-and-release.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/ipfs/js-blockstore-datastore-adapter/js-test-and-release.yml?branch=master\&style=flat-square)](https://github.com/ipfs/js-blockstore-datastore-adapter/actions/workflows/js-test-and-release.yml?query=branch%3Amaster)
 
 > datastore interface
 
 ## Table of contents <!-- omit in toc -->
 
 - [Install](#install)
+  - [Browser `<script>` tag](#browser-script-tag)
 - [Usage](#usage)
-- [Contribute](#contribute)
+- [API Docs](#api-docs)
 - [License](#license)
-- [Contribute](#contribute-1)
+- [Contribute](#contribute)
 
 ## Install
 
 ```console
 $ npm i blockstore-datastore-adapter
+```
+
+### Browser `<script>` tag
+
+Loading this module through a script tag will make it's exports available as `BlockstoreDatastoreAdapter` in the global namespace.
+
+```html
+<script src="https://unpkg.com/blockstore-datastore-adapter/dist/index.min.js"></script>
 ```
 
 ## Usage
@@ -30,13 +39,9 @@ import { BlockstoreDatastoreAdapter } from 'blockstore-datastore-adapter'
 const store = new BlockstoreDatastoreAdapter(new MemoryDatastore())
 ```
 
-## Contribute
+## API Docs
 
-Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs/js-ipfs-bitswap/issues)!
-
-This repository falls under the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
-
-[![](https://cdn.rawgit.com/jbenet/contribute-ipfs-gif/master/img/contribute.gif)](https://github.com/ipfs/community/blob/master/CONTRIBUTING.md)
+- <https://ipfs.github.io/js-blockstore-datastore-adapter>
 
 ## License
 
