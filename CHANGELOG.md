@@ -1,3 +1,14 @@
+## [5.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v4.0.0...v5.0.0) (2023-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* update all deps including multiformats (#66)
+
+### Bug Fixes
+
+* update all deps including multiformats ([#66](https://github.com/ipfs/js-blockstore-datastore-adapter/issues/66)) ([4c8edb4](https://github.com/ipfs/js-blockstore-datastore-adapter/commit/4c8edb4bc3431ae7bda430263232e5a5aaf0e63f))
+
 ## [4.0.0](https://github.com/ipfs/js-blockstore-datastore-adapter/compare/v3.0.1...v4.0.0) (2022-10-18)
 
 
