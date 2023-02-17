@@ -166,7 +166,7 @@
     "multiformats": "^11.0.0"
   },
   "devDependencies": {
-    "aegir": "^37.5.1",
+    "aegir": "^38.1.5",
     "datastore-core": "^8.0.1",
     "interface-blockstore-tests": "^4.0.0"
   }
