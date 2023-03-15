@@ -157,7 +157,7 @@
     "docs": "aegir docs"
   },
   "dependencies": {
-    "blockstore-core": "^3.0.0",
+    "blockstore-core": "^4.0.1",
     "err-code": "^3.0.1",
     "interface-blockstore": "^4.0.0",
     "interface-datastore": "^7.0.0",
