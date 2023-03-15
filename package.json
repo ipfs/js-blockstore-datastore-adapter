@@ -167,7 +167,7 @@
   },
   "devDependencies": {
     "aegir": "^37.5.1",
-    "datastore-core": "^8.0.1",
+    "datastore-core": "^9.0.3",
     "interface-blockstore-tests": "^4.0.0"
   }
 }
