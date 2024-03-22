@@ -41,20 +41,20 @@
 <a href="#install" id="install" style="color: inherit; text-decoration: none;">
   <h2>Install</h2>
 </a>
-<pre><code class="language-console"><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-2">npm</span><span class="hl-1"> </span><span class="hl-2">i</span><span class="hl-1"> </span><span class="hl-2">blockstore-datastore-adapter</span>
+<pre><code class="language-console"><span class="hl-0">$ npm i blockstore-datastore-adapter</span>
 </code></pre>
 
 <a href="#browser-ltscriptgt-tag" id="browser-ltscriptgt-tag" style="color: inherit; text-decoration: none;">
   <h3>Browser <code>&lt;script&gt;</code> tag</h3>
 </a>
 <p>Loading this module through a script tag will make it&#39;s exports available as <code>BlockstoreDatastoreAdapter</code> in the global namespace.</p>
-<pre><code class="language-html"><span class="hl-3">&lt;</span><span class="hl-4">script</span><span class="hl-5"> </span><span class="hl-6">src</span><span class="hl-5">=</span><span class="hl-7">&quot;https://unpkg.com/blockstore-datastore-adapter/dist/index.min.js&quot;</span><span class="hl-3">&gt;&lt;/</span><span class="hl-4">script</span><span class="hl-3">&gt;</span>
+<pre><code class="language-html"><span class="hl-1">&lt;</span><span class="hl-2">script</span><span class="hl-3"> </span><span class="hl-4">src</span><span class="hl-3">=</span><span class="hl-5">&quot;https://unpkg.com/blockstore-datastore-adapter/dist/index.min.js&quot;</span><span class="hl-1">&gt;&lt;/</span><span class="hl-2">script</span><span class="hl-1">&gt;</span>
 </code></pre>
 
 <a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
   <h2>Usage</h2>
 </a>
-<pre><code class="language-js"><span class="hl-8">import</span><span class="hl-1"> { </span><span class="hl-9">MemoryDatastore</span><span class="hl-1"> } </span><span class="hl-8">from</span><span class="hl-1"> </span><span class="hl-2">&#39;datastore-core/memory&#39;</span><br/><span class="hl-8">import</span><span class="hl-1"> { </span><span class="hl-9">BlockstoreDatastoreAdapter</span><span class="hl-1"> } </span><span class="hl-8">from</span><span class="hl-1"> </span><span class="hl-2">&#39;blockstore-datastore-adapter&#39;</span><br/><br/><span class="hl-10">const</span><span class="hl-1"> </span><span class="hl-11">store</span><span class="hl-1"> = </span><span class="hl-10">new</span><span class="hl-1"> </span><span class="hl-0">BlockstoreDatastoreAdapter</span><span class="hl-1">(</span><span class="hl-10">new</span><span class="hl-1"> </span><span class="hl-0">MemoryDatastore</span><span class="hl-1">())</span>
+<pre><code class="language-js"><span class="hl-6">import</span><span class="hl-0"> { </span><span class="hl-7">MemoryDatastore</span><span class="hl-0"> } </span><span class="hl-6">from</span><span class="hl-0"> </span><span class="hl-8">&#39;datastore-core/memory&#39;</span><br/><span class="hl-6">import</span><span class="hl-0"> { </span><span class="hl-7">BlockstoreDatastoreAdapter</span><span class="hl-0"> } </span><span class="hl-6">from</span><span class="hl-0"> </span><span class="hl-8">&#39;blockstore-datastore-adapter&#39;</span><br/><br/><span class="hl-9">const</span><span class="hl-0"> </span><span class="hl-10">store</span><span class="hl-0"> = </span><span class="hl-9">new</span><span class="hl-0"> </span><span class="hl-11">BlockstoreDatastoreAdapter</span><span class="hl-0">(</span><span class="hl-9">new</span><span class="hl-0"> </span><span class="hl-11">MemoryDatastore</span><span class="hl-0">())</span>
 </code></pre>
 
 <a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
